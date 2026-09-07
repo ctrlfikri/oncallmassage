@@ -1,0 +1,17 @@
+{
+  "name": "harmony-massage",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "nuxt": "3.13.2",
+    "vue": "3.4.38",
+    "vue-router": "4.4.3"
+  }
+}

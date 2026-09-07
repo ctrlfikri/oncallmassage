@@ -1,0 +1,181 @@
+/* ===================================================================
+   GELI-GELI ODYSSEY — design tokens
+   Deep navy and warm gold, built for a "flagship hotel spa" register:
+   more contrast, more weight in the display type, a metallic accent
+   used with restraint against near-black blue.
+=================================================================== */
+
+:root {
+  /* color */
+  --bg: #070b16;
+  --bg-alt: #050813;
+  --surface: #0e1526;
+  --surface-raised: #141d33;
+  --line: rgba(226, 202, 155, 0.14);
+  --line-strong: rgba(226, 202, 155, 0.3);
+  --ink: #f4f1e8;
+  --ink-muted: #b6bccd;
+  --ink-faint: #7d84a0;
+  --gold: #cc9f4c;
+  --gold-strong: #e8c47a;
+  --gold-dim: #8a7239;
+
+  /* type */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* scale — a notch bolder/larger for a flagship feel */
+  --step-1: clamp(2.9rem, 2.1rem + 3.4vw, 5.4rem);
+  --step-2: clamp(1.75rem, 1.5rem + 1.1vw, 2.5rem);
+  --step-3: clamp(1.15rem, 1.1rem + 0.3vw, 1.4rem);
+
+  /* rhythm */
+  --gutter: clamp(1.25rem, 1rem + 2vw, 3rem);
+  --section-y: clamp(4.5rem, 3.6rem + 3.8vw, 8.5rem);
+  --content-max: 1220px;
+
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.08;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+p { margin: 0; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+ul { margin: 0; padding: 0; list-style: none; }
+
+img { max-width: 100%; display: block; }
+
+::selection {
+  background: var(--gold);
+  color: var(--bg-alt);
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* --- shared layout primitives ------------------------------------ */
+
+.shell {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: var(--section-y);
+}
+
+.section-head {
+  max-width: 42ch;
+}
+
+.section-head h2 {
+  font-size: var(--step-2);
+}
+
+.section-head p {
+  margin-top: 0.9rem;
+  color: var(--ink-muted);
+  font-size: var(--step-3);
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: var(--gold-strong);
+  font-family: var(--font-display);
+  font-style: italic;
+  margin-bottom: 0.9rem;
+}
+
+.rule {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 0;
+}
+
+/* --- buttons -------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem 1.8rem;
+  border-radius: 1px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  border: 1px solid transparent;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease,
+    box-shadow 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: linear-gradient(155deg, var(--gold-strong), var(--gold) 70%);
+  color: #1a1408;
+  box-shadow: 0 8px 24px -10px rgba(204, 159, 76, 0.55);
+}
+.btn-primary:hover {
+  background: linear-gradient(155deg, var(--gold-strong), var(--gold-strong));
+  box-shadow: 0 10px 30px -8px rgba(204, 159, 76, 0.7);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  border-color: var(--line-strong);
+  color: var(--ink);
+  background: transparent;
+}
+.btn-ghost:hover {
+  border-color: var(--gold);
+  color: var(--gold-strong);
+}
+
+.btn-block {
+  width: 100%;
+  justify-content: center;
+}
